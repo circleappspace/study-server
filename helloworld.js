@@ -10,4 +10,4 @@ app.get('/nalgae', (req, res) => {
   res.send('nalgae')
 })
 
-app.listen(3000)
+app.listen(80)
