@@ -1,9 +1,9 @@
+import express from 'express'
 
-import figlet from "figlet";
+const app = express()
 
-async function doStuff() {
-  const text = await figlet.text("Nalgae!!");
-  console.log(text);
-}
+app.get('/nalgae', (req, res) => {
+  res.send('nalgae')
+})
 
-doStuff();
+app.listen(3000)
