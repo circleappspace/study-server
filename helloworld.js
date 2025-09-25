@@ -13,11 +13,9 @@ function saveData(obj) {
 }
 
 const app = express()
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const bubbles = loadData()
-
-app.get('/', (req, res) => {
-  res.send('index page')
-})
 
 app.get('/api/v1/bubble', (req, res) => {
   res.send(bubbles)
@@ -29,6 +27,8 @@ app.get('/api/v1/bubble/:id', (req, res) => {
   res.send(bubble)
 })
 
-app.get('/api/v1/bubble/:id', (req, res) => {})
+app.post('/api/v1/bubble', (req, res) => {
+  res.send(req.body.id)
+})
 
 app.listen(3000)
